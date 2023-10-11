@@ -14,8 +14,6 @@ const corsOptions = {
   allowedHeaders: "Content-Type, Authorization, Access-Control-Allow-Origin",
 };
 
-app.use(cors(corsOptions));
-
 app.use(express.json());
 
 app.use("/uploads/images", express.static("uploads/images"));
@@ -23,12 +21,6 @@ app.use("/uploads/recordings", express.static("uploads/recordings"));
 
 app.use("/api/auth", AuthRoutes);
 app.use("/api/messages", MessageRoutes);
-app.options(
-  "*",
-  cors({
-    origin: "*",
-  })
-);
 
 const server = app.listen(process.env.PORT, () => {
   console.log(`Server is started at ${process.env.PORT}`);
