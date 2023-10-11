@@ -7,6 +7,8 @@ export const addMessage = async (req, res, next) => {
       "Access-Control-Allow-Origin",
       "https://whatsapp-clone-front-end-zeta.vercel.app"
     );
+    res.setHeader("Access-Control-Allow-Credentials", true);
+
     const prisma = getPrismaInstance();
     const { message, from, to } = req.body;
     const getUser = onlineUsers.get(to);
@@ -33,6 +35,7 @@ export const getMessages = async (req, res, next) => {
       "Access-Control-Allow-Origin",
       "https://whatsapp-clone-front-end-zeta.vercel.app"
     );
+    res.setHeader("Access-Control-Allow-Credentials", true);
     const prisma = getPrismaInstance();
     const { from, to } = req.params;
 
@@ -83,6 +86,7 @@ export const addImageMessage = async (req, res, next) => {
       "Access-Control-Allow-Origin",
       "https://whatsapp-clone-front-end-zeta.vercel.app"
     );
+    res.setHeader("Access-Control-Allow-Credentials", true);
     if (req.file) {
       const date = Date.now();
       let fileName = "uploads/images/" + date + req.file.originalname;
@@ -115,6 +119,7 @@ export const addAudioMessage = async (req, res, next) => {
       "Access-Control-Allow-Origin",
       "https://whatsapp-clone-front-end-zeta.vercel.app"
     );
+    res.setHeader("Access-Control-Allow-Credentials", true);
     if (req.file) {
       const date = Date.now();
       let fileName = "uploads/recordings/" + date + req.file.originalname;
@@ -147,6 +152,7 @@ export const getInitialContactsWithMessages = async (req, res, next) => {
       "Access-Control-Allow-Origin",
       "https://whatsapp-clone-front-end-zeta.vercel.app"
     );
+    res.setHeader("Access-Control-Allow-Credentials", true);
     const userId = req.params.from;
     const prisma = getPrismaInstance();
     const user = await prisma.user.findUnique({

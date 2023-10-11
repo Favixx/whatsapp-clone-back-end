@@ -8,7 +8,7 @@ export const checkUser = async (req, res, next) => {
       "Access-Control-Allow-Origin",
       "https://whatsapp-clone-front-end-zeta.vercel.app"
     );
-
+    res.setHeader("Access-Control-Allow-Credentials", true);
     if (!email) {
       return res.json({ msg: "Email is required", status: false });
     }
@@ -30,6 +30,7 @@ export const onBoardUser = async (req, res, next) => {
       "Access-Control-Allow-Origin",
       "https://whatsapp-clone-front-end-zeta.vercel.app"
     );
+    res.setHeader("Access-Control-Allow-Credentials", true);
     const { email, name, about, image: profilePicture } = req.body;
     if (!email || !name || !profilePicture) {
       return res
@@ -57,6 +58,7 @@ export const getAllUsers = async (req, res, next) => {
       "Access-Control-Allow-Origin",
       "https://whatsapp-clone-front-end-zeta.vercel.app"
     );
+    res.setHeader("Access-Control-Allow-Credentials", true);
     const prisma = getPrismaInstance();
     const users = await prisma.user.findMany({
       orderBy: { name: "asc" },
@@ -89,6 +91,7 @@ export const generateToken = async (req, res, next) => {
       "Access-Control-Allow-Origin",
       "https://whatsapp-clone-front-end-zeta.vercel.app"
     );
+    res.setHeader("Access-Control-Allow-Credentials", true);
     const appId = parseInt(process.env.ZEGO_APP_ID);
     const serverSecret = process.env.ZEGO_SERVER_ID;
     const userId = req.params.userId;
