@@ -10,7 +10,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: "https://whatsapp-clone-front-end-zeta.vercel.app",
+    origin: "*",
   })
 );
 app.use(express.json());
@@ -27,7 +27,7 @@ const server = app.listen(process.env.PORT, () => {
 
 const io = new Server(server, {
   cors: {
-    origin: "https://whatsapp-clone-front-end-zeta.vercel.app/",
+    origin: "https://whatsapp-clone-front-end-zeta.vercel.app",
   },
 });
 
