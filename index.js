@@ -8,7 +8,11 @@ import { Server } from "socket.io";
 dotenv.config();
 const app = express();
 
-app.use(cors());
+app.use(
+  cors({
+    origin: "https://whatsapp-clone-front-end-zeta.vercel.app",
+  })
+);
 app.use(express.json());
 
 app.use("/uploads/images", express.static("uploads/images"));
@@ -23,7 +27,7 @@ const server = app.listen(process.env.PORT, () => {
 
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:3000",
+    origin: "https://whatsapp-clone-front-end-zeta.vercel.app/",
   },
 });
 
