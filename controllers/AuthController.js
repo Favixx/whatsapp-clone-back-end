@@ -85,7 +85,7 @@ export const generateToken = async (req, res, next) => {
         effectiveTime,
         payload
       );
-      res.status(200).json({ token });
+      return res.status(200).json({ token });
     }
     return res.status(400).send("User ID, App ID, server secret is required");
   } catch (error) {
