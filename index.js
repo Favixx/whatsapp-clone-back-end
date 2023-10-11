@@ -11,7 +11,7 @@ const app = express();
 const corsOptions = {
   origin: "https://whatsapp-clone-front-end-zeta.vercel.app",
   methods: "GET, POST, PUT, DELETE, OPTIONS",
-  allowedHeaders: "Content-Type, Authorization",
+  allowedHeaders: "Content-Type, Authorization, Access-Control-Allow-Origin",
 };
 
 app.use(cors(corsOptions));
