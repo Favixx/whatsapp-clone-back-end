@@ -4,6 +4,13 @@ import { generateToken04 } from "../utils/TokenGenerator.js";
 export const checkUser = async (req, res, next) => {
   try {
     const { email } = req.body;
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+    res.setHeader(
+      "Access-Control-Allow-Headers",
+      "Content-Type, Authorization"
+    );
+
     if (!email) {
       return res.json({ msg: "Email is required", status: false });
     }
@@ -21,6 +28,12 @@ export const checkUser = async (req, res, next) => {
 
 export const onBoardUser = async (req, res, next) => {
   try {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+    res.setHeader(
+      "Access-Control-Allow-Headers",
+      "Content-Type, Authorization"
+    );
     const { email, name, about, image: profilePicture } = req.body;
     if (!email || !name || !profilePicture) {
       return res
@@ -44,6 +57,12 @@ export const onBoardUser = async (req, res, next) => {
 
 export const getAllUsers = async (req, res, next) => {
   try {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+    res.setHeader(
+      "Access-Control-Allow-Headers",
+      "Content-Type, Authorization"
+    );
     const prisma = getPrismaInstance();
     const users = await prisma.user.findMany({
       orderBy: { name: "asc" },
@@ -72,6 +91,12 @@ export const getAllUsers = async (req, res, next) => {
 
 export const generateToken = async (req, res, next) => {
   try {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+    res.setHeader(
+      "Access-Control-Allow-Headers",
+      "Content-Type, Authorization"
+    );
     const appId = parseInt(process.env.ZEGO_APP_ID);
     const serverSecret = process.env.ZEGO_SERVER_ID;
     const userId = req.params.userId;

@@ -3,6 +3,12 @@ import { renameSync } from "fs";
 
 export const addMessage = async (req, res, next) => {
   try {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+    res.setHeader(
+      "Access-Control-Allow-Headers",
+      "Content-Type, Authorization"
+    );
     const prisma = getPrismaInstance();
     const { message, from, to } = req.body;
     const getUser = onlineUsers.get(to);
@@ -25,6 +31,12 @@ export const addMessage = async (req, res, next) => {
 
 export const getMessages = async (req, res, next) => {
   try {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+    res.setHeader(
+      "Access-Control-Allow-Headers",
+      "Content-Type, Authorization"
+    );
     const prisma = getPrismaInstance();
     const { from, to } = req.params;
 
@@ -71,6 +83,12 @@ export const getMessages = async (req, res, next) => {
 
 export const addImageMessage = async (req, res, next) => {
   try {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+    res.setHeader(
+      "Access-Control-Allow-Headers",
+      "Content-Type, Authorization"
+    );
     if (req.file) {
       const date = Date.now();
       let fileName = "uploads/images/" + date + req.file.originalname;
@@ -99,6 +117,12 @@ export const addImageMessage = async (req, res, next) => {
 
 export const addAudioMessage = async (req, res, next) => {
   try {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+    res.setHeader(
+      "Access-Control-Allow-Headers",
+      "Content-Type, Authorization"
+    );
     if (req.file) {
       const date = Date.now();
       let fileName = "uploads/recordings/" + date + req.file.originalname;
@@ -127,6 +151,12 @@ export const addAudioMessage = async (req, res, next) => {
 
 export const getInitialContactsWithMessages = async (req, res, next) => {
   try {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+    res.setHeader(
+      "Access-Control-Allow-Headers",
+      "Content-Type, Authorization"
+    );
     const userId = req.params.from;
     const prisma = getPrismaInstance();
     const user = await prisma.user.findUnique({
