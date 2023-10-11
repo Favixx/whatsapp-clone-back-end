@@ -4,11 +4,9 @@ import { generateToken04 } from "../utils/TokenGenerator.js";
 export const checkUser = async (req, res, next) => {
   try {
     const { email } = req.body;
-    res.setHeader("Access-Control-Allow-Origin", "*");
-    res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
     res.setHeader(
-      "Access-Control-Allow-Headers",
-      "Content-Type, Authorization"
+      "Access-Control-Allow-Origin",
+      "https://whatsapp-clone-front-end-zeta.vercel.app"
     );
 
     if (!email) {
@@ -28,11 +26,9 @@ export const checkUser = async (req, res, next) => {
 
 export const onBoardUser = async (req, res, next) => {
   try {
-    res.setHeader("Access-Control-Allow-Origin", "*");
-    res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
     res.setHeader(
-      "Access-Control-Allow-Headers",
-      "Content-Type, Authorization"
+      "Access-Control-Allow-Origin",
+      "https://whatsapp-clone-front-end-zeta.vercel.app"
     );
     const { email, name, about, image: profilePicture } = req.body;
     if (!email || !name || !profilePicture) {
@@ -57,11 +53,9 @@ export const onBoardUser = async (req, res, next) => {
 
 export const getAllUsers = async (req, res, next) => {
   try {
-    res.setHeader("Access-Control-Allow-Origin", "*");
-    res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
     res.setHeader(
-      "Access-Control-Allow-Headers",
-      "Content-Type, Authorization"
+      "Access-Control-Allow-Origin",
+      "https://whatsapp-clone-front-end-zeta.vercel.app"
     );
     const prisma = getPrismaInstance();
     const users = await prisma.user.findMany({
@@ -91,11 +85,9 @@ export const getAllUsers = async (req, res, next) => {
 
 export const generateToken = async (req, res, next) => {
   try {
-    res.setHeader("Access-Control-Allow-Origin", "*");
-    res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
     res.setHeader(
-      "Access-Control-Allow-Headers",
-      "Content-Type, Authorization"
+      "Access-Control-Allow-Origin",
+      "https://whatsapp-clone-front-end-zeta.vercel.app"
     );
     const appId = parseInt(process.env.ZEGO_APP_ID);
     const serverSecret = process.env.ZEGO_SERVER_ID;

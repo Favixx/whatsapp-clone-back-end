@@ -3,11 +3,9 @@ import { renameSync } from "fs";
 
 export const addMessage = async (req, res, next) => {
   try {
-    res.setHeader("Access-Control-Allow-Origin", "*");
-    res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
     res.setHeader(
-      "Access-Control-Allow-Headers",
-      "Content-Type, Authorization"
+      "Access-Control-Allow-Origin",
+      "https://whatsapp-clone-front-end-zeta.vercel.app"
     );
     const prisma = getPrismaInstance();
     const { message, from, to } = req.body;
@@ -31,11 +29,9 @@ export const addMessage = async (req, res, next) => {
 
 export const getMessages = async (req, res, next) => {
   try {
-    res.setHeader("Access-Control-Allow-Origin", "*");
-    res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
     res.setHeader(
-      "Access-Control-Allow-Headers",
-      "Content-Type, Authorization"
+      "Access-Control-Allow-Origin",
+      "https://whatsapp-clone-front-end-zeta.vercel.app"
     );
     const prisma = getPrismaInstance();
     const { from, to } = req.params;
@@ -83,11 +79,9 @@ export const getMessages = async (req, res, next) => {
 
 export const addImageMessage = async (req, res, next) => {
   try {
-    res.setHeader("Access-Control-Allow-Origin", "*");
-    res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
     res.setHeader(
-      "Access-Control-Allow-Headers",
-      "Content-Type, Authorization"
+      "Access-Control-Allow-Origin",
+      "https://whatsapp-clone-front-end-zeta.vercel.app"
     );
     if (req.file) {
       const date = Date.now();
@@ -117,11 +111,9 @@ export const addImageMessage = async (req, res, next) => {
 
 export const addAudioMessage = async (req, res, next) => {
   try {
-    res.setHeader("Access-Control-Allow-Origin", "*");
-    res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
     res.setHeader(
-      "Access-Control-Allow-Headers",
-      "Content-Type, Authorization"
+      "Access-Control-Allow-Origin",
+      "https://whatsapp-clone-front-end-zeta.vercel.app"
     );
     if (req.file) {
       const date = Date.now();
@@ -151,11 +143,9 @@ export const addAudioMessage = async (req, res, next) => {
 
 export const getInitialContactsWithMessages = async (req, res, next) => {
   try {
-    res.setHeader("Access-Control-Allow-Origin", "*");
-    res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
     res.setHeader(
-      "Access-Control-Allow-Headers",
-      "Content-Type, Authorization"
+      "Access-Control-Allow-Origin",
+      "https://whatsapp-clone-front-end-zeta.vercel.app"
     );
     const userId = req.params.from;
     const prisma = getPrismaInstance();
